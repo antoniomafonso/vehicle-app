@@ -5,7 +5,11 @@ import type {
   SortOptions,
   PaginationOptions,
 } from "../types/vehicles";
-import { filterVehicles, sortVehicles } from "../utils/vehicleUtils";
+import {
+  filterVehicles,
+  sortVehicles,
+  timeToAuction,
+} from "../utils/vehicleUtils";
 
 interface UseVehiclesReturn {
   vehicles: Vehicle[];
@@ -65,10 +69,10 @@ export const useVehicles = (): UseVehiclesReturn => {
         const vehiclesWithIds = vehicleData.map((vehicle, index) => ({
           ...vehicle,
           id: `vehicle-${index}`,
+          timeToAuction: timeToAuction(vehicle.auctionDateTime),
         }));
 
         setVehicles(vehiclesWithIds);
-        console.log(vehiclesWithIds);
 
         setPagination((prev) => ({
           ...prev,

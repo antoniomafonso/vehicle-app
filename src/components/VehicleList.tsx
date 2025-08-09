@@ -9,7 +9,6 @@ interface VehicleListProps {
 }
 
 const VehicleListContainer = styled.div`
-  margin: 20px;
   width: 50%;
 `;
 
@@ -23,16 +22,14 @@ const VehicleList: React.FC<VehicleListProps> = ({
 }) => {
   return (
     <VehicleListContainer>
-      {vehicles.map((vehicle: Vehicle) => {
-        return (
-          <VehicleCardWrapper>
-            <VehicleCard
-              vehicle={vehicle}
-              onToggleFavourite={onToggleFavourite}
-            />
-          </VehicleCardWrapper>
-        );
-      })}
+      {vehicles.map((vehicle: Vehicle) => (
+        <VehicleCardWrapper key={vehicle.id}>
+          <VehicleCard
+            vehicle={vehicle}
+            onToggleFavourite={onToggleFavourite}
+          />
+        </VehicleCardWrapper>
+      ))}
     </VehicleListContainer>
   );
 };

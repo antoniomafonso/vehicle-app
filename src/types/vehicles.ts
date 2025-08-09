@@ -7,6 +7,7 @@ export interface Vehicle {
   year: number;
   mileage: number;
   auctionDateTime: string;
+  timeToAuction?: string;
   startingBid: number;
   favourite: boolean;
 }
@@ -23,7 +24,7 @@ export interface VehicleDetails {
     numberOfKeys: number;
   };
   ownership: {
-    logbook: string;
+    logBook: string;
     numberOfOwners: number;
     dateOfRegistration: string;
   };

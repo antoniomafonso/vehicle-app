@@ -68,3 +68,27 @@ export const sortVehicles = (
     return 0;
   });
 };
+
+export const timeToAuction = (auctionTime: string) => {
+  const now = new Date();
+  const auction = new Date(auctionTime);
+
+  const timeDiff = auction.getTime() - now.getTime();
+
+  if (timeDiff <= 0) {
+    return "Auction has ended";
+  }
+
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+
+  if (days > 0) {
+    return `${days} day${days === 1 ? "" : "s"} ${hours} hour${
+      hours === 1 ? "" : "s"
+    } to auction`;
+  } else {
+    return `${hours} hour${hours === 1 ? "" : "s"} to auction`;
+  }
+};

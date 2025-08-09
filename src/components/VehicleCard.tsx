@@ -13,7 +13,6 @@ const CardContainer = styled.div`
   width: 100%;
   border: 1px solid #d1d5db;
   border-radius: 8px;
-  padding: 16px;
   background: white;
   cursor: pointer;
 
@@ -23,8 +22,19 @@ const CardContainer = styled.div`
   }
 `;
 
-const ImageWrapper = styled.div`
+const Card = styled.div`
+  display: flex;
+  justifycontent: space-between;
+  alignitems: center;
+`;
+
+const CardInfoContainer = styled.div`
+  width: 100%;
   padding: 10px;
+`;
+
+const ImageWrapper = styled.div`
+  padding: 20px;
 `;
 
 const Image = styled.img`
@@ -37,6 +47,7 @@ const FavouriteButton = styled.button`
   border: none;
   cursor: pointer;
   font-size: 18px;
+  padding: 20px;
 
   &:hover {
     transform: scale(1.1);
@@ -60,33 +71,26 @@ const VehicleCard: React.FC<VehicleCardProps> = ({
 
   return (
     <CardContainer>
-      <div
-        onClick={handleCardClick}
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+      <Card onClick={handleCardClick}>
         <ImageWrapper>
           <Image src={carPlaceholder} />
         </ImageWrapper>
-        <div style={{ width: "100%", padding: "10px" }}>
+        <CardInfoContainer>
           <h3>
             {vehicle.make} {vehicle.model}
           </h3>
           <p>
-            €{vehicle.startingBid.toLocaleString()} • {vehicle.auctionDateTime}
+            €{vehicle.startingBid.toLocaleString()} • {vehicle.timeToAuction}
           </p>
           <p>
             {vehicle.year} • {vehicle.mileage.toLocaleString()} miles
           </p>
-        </div>
+        </CardInfoContainer>
 
         <FavouriteButton onClick={handleFavouriteClick}>
           {vehicle.favourite ? "❤️" : "🤍"}
         </FavouriteButton>
-      </div>
+      </Card>
     </CardContainer>
   );
 };
