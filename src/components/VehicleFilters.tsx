@@ -108,7 +108,7 @@ const VehicleFilters: React.FC<VehicleFiltersProps> = ({
           label="Model"
           value={filters.model}
           options={availableModels}
-          onChange={(e) => onFiltersChange({ make: filters.make, model: e })}
+          onChange={(e) => onFiltersChange({ model: e })}
           placeholder="All Models"
         />
         <FilterGroup>
@@ -143,9 +143,9 @@ const VehicleFilters: React.FC<VehicleFiltersProps> = ({
         <Dropdown
           label="Sort By"
           value={sort.field}
-          options={["make", "startingBid", "mileage", "auctionDateTime"]}
+          options={["make", "startingBid", "mileage"]}
           onChange={(e) => onUpdateSort({ field: e as SortField })}
-          placeholder="None"
+          placeholder="auctionDateTime"
         />
         <button
           onClick={() =>

@@ -116,7 +116,7 @@ const VehicleDetailsPage: React.FC = () => {
           </Title>
           <Price>€{vehicle.startingBid.toLocaleString()}</Price>
           <div>Auction: {vehicle.auctionDateTime}</div>
-          {vehicle.favourite && <div>⭐ Favourite</div>}
+          {vehicle.favourite && <div>❤️ Favourite</div>}
         </div>
       </VehicleHeader>
 
