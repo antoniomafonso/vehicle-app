@@ -33,16 +33,16 @@ const PaginationControls = styled.div`
 const PageButton = styled.button<{ active?: boolean; disabled?: boolean }>`
   padding: 8px 12px;
   border: 1px solid #d1d5db;
-  background-color: ${(props) =>
-    props.active ? "#3b82f6" : props.disabled ? "#f9fafb" : "white"};
+  background-color: ${({ active, disabled }) =>
+    active ? "#3b82f6" : disabled ? "#f9fafb" : "white"};
   border-radius: 6px;
   font-size: 14px;
-  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
   min-width: 40px;
 
   &:hover:not(:disabled) {
-    background-color: ${(props) => (props.active ? "#2563eb" : "#f3f4f6")};
-    border-color: ${(props) => (props.active ? "#2563eb" : "#9ca3af")};
+    background-color: ${({ active }) => (active ? "#2563eb" : "#f3f4f6")};
+    border-color: ${({ active }) => (active ? "#2563eb" : "#9ca3af")};
   }
 `;
 

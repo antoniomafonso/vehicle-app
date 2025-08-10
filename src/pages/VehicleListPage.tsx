@@ -2,7 +2,7 @@ import type React from "react";
 import { useVehicles } from "../hooks/useVehicles";
 import VehicleList from "../components/VehicleList";
 import VehicleFilters from "../components/VehicleFilters";
-import Pagination from "../components/Paginations";
+import Pagination from "../components/Pagination";
 import styled from "styled-components";
 
 const VehicleListPageWrapper = styled.div`

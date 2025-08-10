@@ -64,7 +64,9 @@ export const Dropdown: React.FC<DropdownProps> = ({
         onChange={(e) => onChange(e.target.value)}
         disabled={disabled}
       >
-        <option value="">{placeholder}</option>
+        <option key={"placeholder"} value="">
+          {placeholder}
+        </option>
         {options.map((option) => (
           <option key={option} value={option}>
             {option}
